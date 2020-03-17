@@ -17,11 +17,3 @@ module EloBoosting
     # the framework and any gems in your application.
   end
 end
-
-
-
-
-
-# Line to delete
-config.assets.initialize_on_precompile = false
-
