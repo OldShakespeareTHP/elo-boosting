@@ -1,0 +1,13 @@
+.hover-underline {
+	border-bottom: 0.2rem solid transparent;
+	border-top: 0.3rem solid transparent;
+	transition-duration: 0.2s;
+}
+
+.hover-underline:hover, .hover-underline:focus {
+	border-bottom: 0.2rem solid var(--info);
+}
+
+.dropdown-menu > .dropdown-item:hover {
+	background-color: var(--gray-dark) !important;
+}
