@@ -19,26 +19,28 @@
           <a class="nav-link py-4 hover-underline text-white" href="#">Contact Us</a>
         </li>
       </ul>
-    </div>
-    <div class="nav-item dropdown">
-      <% if current_user %>
-        <a class="nav-link dropdown-toggle py-4 hover-underline text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My profile
-        </a>
-        <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item text-white" href="<%= edit_user_registration_path %>">My Profile</a>
-          <a class="dropdown-item text-white" href="#">Add LoL Account</a>
-          <%= link_to 'Disconnect', destroy_user_session_path, class:"dropdown-item text-white", method: :delete %>
-        </div>
-      <% else %>
-        <a class="nav-link dropdown-toggle py-4 hover-underline text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Connexion
-        </a>
-        <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item text-white" href="<%= new_user_session_path %>">Sign In</a>
-          <a class="dropdown-item text-white" href="<%= new_user_registration_path %>">Sign Up</a>
-        </div>
-      <% end %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <% if current_user %>
+            <a class="nav-link dropdown-toggle py-4 hover-underline text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My profile
+            </a>
+            <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item text-white" href="<%= edit_user_registration_path %>">My Profile</a>
+              <a class="dropdown-item text-white" href="#">Add LoL Account</a>
+              <%= link_to 'Disconnect', destroy_user_session_path, class:"dropdown-item text-white", method: :delete %>
+            </div>
+          <% else %>
+            <a class="nav-link dropdown-toggle py-4 hover-underline text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Connexion
+            </a>
+            <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item text-white" href="<%= new_user_session_path %>">Sign In</a>
+              <a class="dropdown-item text-white" href="<%= new_user_registration_path %>">Sign Up</a>
+            </div>
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
