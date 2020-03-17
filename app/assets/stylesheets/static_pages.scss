@@ -1,3 +1,19 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#jumbotron,.jumbotron {
+  background-image: url(Kassadin_5.jpg);
+  background-position: top;
+  background-size: cover;
+  background-attachment: scroll;
+  text-shadow: 2px 1px black;
+}
+
+#boostme-btn {
+  background-color: #0FB8D2;
+}
+
+#pricing-btn {
+  background-color: #D0A85C;
+}
