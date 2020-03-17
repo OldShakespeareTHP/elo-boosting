@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  queue: MyString
+  current_rank: MyString
+  desired_rank: MyString
+  riot_account: one
+
+two:
+  queue: MyString
+  current_rank: MyString
+  desired_rank: MyString
+  riot_account: two
