@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_03_18_111129) do
   enable_extension "plpgsql"
 
   create_table "boosts", force: :cascade do |t|
-    t.string "queue"
-    t.string "current_rank"
-    t.string "desired_rank"
+    t.string "queue", default: "", null: false
+    t.string "current_rank", default: "", null: false
+    t.string "desired_rank", default: "", null: false
     t.bigint "riot_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
