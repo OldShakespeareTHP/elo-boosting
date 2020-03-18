@@ -12,6 +12,7 @@
   
   <body class="bg-primary">
   <%= render "layouts/header" %>
+  <%= render "layouts/flash" unless flash.empty?%>
   <main class="bg-white">
     <%= yield %>
   </main>

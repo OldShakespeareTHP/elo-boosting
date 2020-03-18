@@ -4,7 +4,13 @@ class BoostsController < ApplicationController
   end
 
   def create
-    Boost.create(boost_params)
+    boost = Boost.new(boost_params)
+    if boost.save
+      redirect_to root_path
+    else
+      flash[:alert] = boost.errors.messages
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private

@@ -1,19 +1,35 @@
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
+<div class="log p-5 d-flex align-items-center justify-content-center">
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto">
-  </script>
-<% end %>
+  <div class="container bg-primary p-5 rounded-lg shadow-lg">
+
+    <h2 class="text-white text-center mt-3">Log in</h2>
+
+    <div class="container mt-3 pt-3">
+      <%= form_with url:boosts_path do |f| %>
+        <div class="col-6 offset-3">
+          <div class="form-group d-flex flex-column text-white">
+            <%= f.label :current_rank %><br/>
+            <%= f.select "boost[current_rank]", options_for_select(Boost::RANKS), class: "form-control rounded-sm" %>
+          </div>
+          <br/>
+          <div class="form-group d-flex flex-column text-white">
+            <%= f.label :desired_rank %><br/>
+            <%= f.select "boost[desired_rank]",  options_for_select(Boost::RANKS), class: "form-control rounded-sm" %>
+          </div>
+          <div class="form-group d-flex flex-column text-white">
+            <%= f.label :queue %><br/>
+            <%= f.select "boost[queue]",  options_for_select(Boost::QUEUE), class: "form-control rounded-sm" %>
+          </div>
+          <% unless !current_user || current_user.riot_accounts.nil? %>
+            <div class="form-group d-flex flex-column text-white">
+              <%= f.label :riot_account %><br/>
+              <%= f.select "boost[riot_accoun]",  options_for_select(current_user.riot_accounts), class: "form-control rounded-sm" %>
+            </div>
+          <% end %>
+          <div class="actions">
+            <%= f.submit "Simuler", class: "btn btn-info rounded-sm btn-block" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
