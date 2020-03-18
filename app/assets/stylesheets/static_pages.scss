@@ -10,3 +10,15 @@
   height: 65vh;
   clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
 }
+
+section {
+  min-height: 35vh;
+}
+
+.cta {
+  transform: scale(1.5);
+}
+
+section:nth-child(4) div{
+  height: 25vh;
+}
