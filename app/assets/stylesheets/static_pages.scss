@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #jumbotron,.jumbotron {
-  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(Kassadin_5.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), image-url("Kassadin_5.jpg");
   background-position: top;
   background-size: cover;
   background-attachment: scroll;
@@ -25,4 +25,5 @@ section:nth-child(4) div{
 
 section.bg-dark {
   border-top: 1px solid var(--gray-dark);
+  border-bottom: 1px solid var(--gray-dark);
 }
