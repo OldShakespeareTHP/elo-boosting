@@ -4,20 +4,20 @@
 
     <h2 class="text-white text-center">Log in</h2>
 
-    <div class="d-flex flex-column align-items-center form-group">
+    <div class="d-flex flex-column align-items-center form-group mt-5">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field m-3 text-white">
+        <div class="field text-white pb-3">
           <%= f.label :login%><br/>
           <%= f.text_field :login, autofocus: true, autocomplete: "email", class: "form-control rounded-sm" %>
         </div>
 
-        <div class="field m-3 text-white">
+        <div class="field text-white pb-3">
           <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-sm" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="field m-3 text-white">
+          <div class="field text-white w-100 pb-3">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
@@ -28,7 +28,7 @@
         </div>
       <% end %>
     </div>
-
-    <%= render "devise/shared/links" %>
-
+    <div class="d-flex align-items-center p-2 mt-5">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
