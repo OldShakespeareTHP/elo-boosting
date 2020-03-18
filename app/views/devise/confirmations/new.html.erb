@@ -13,7 +13,7 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),class: "form-control rounded-sm" %>
           </div>
 
-          <div class="actions">
+          <div class="actions mt-5">
             <%= f.submit "Resend confirmation instructions",class: "btn btn-info rounded-sm btn-block" %>
           </div>
         <% end %>
