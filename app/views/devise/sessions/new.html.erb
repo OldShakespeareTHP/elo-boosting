@@ -1,34 +1,36 @@
-<div class="log pt-5">
+<div class="log pt-5 d-flex align-items-center justify-content-center">
 
-  <div class="container bg-dark content p-5 rounded-lg">
+  <div class="container bg-primary content p-5 rounded-lg shadow-lg">
 
-    <h2 class="text-white text-center">Log in</h2>
+    <h2 class="text-white text-center mt-3">Log in</h2>
 
-    <div class="d-flex flex-column align-items-center form-group mt-5">
+    <div class="container mt-3 pt-3">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field text-white pb-3">
-          <%= f.label :login%><br/>
-          <%= f.text_field :login, autofocus: true, autocomplete: "email", class: "form-control rounded-sm" %>
-        </div>
-
-        <div class="field text-white pb-3">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-sm" %>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="field text-white w-100 pb-3">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+        <div class="col-6 offset-3">
+          <div class="form-group row text-white">
+            <%= f.label :login%><br/>
+            <%= f.text_field :login, autofocus: true, autocomplete: "email", class: "form-control rounded-sm" %>
           </div>
-        <% end %>
 
-        <div class="actions">
-          <%= f.submit "Log in", class: "btn btn-warning rounded-sm w-100"  %>
+          <div class="form-group row text-white">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control rounded-sm" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group text-white w-100 pb-3">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: "btn btn-warning rounded-sm w-100"  %>
+          </div>
+          <div class="my-3">
+            <%= render "devise/shared/links" %>
+          </div>
         </div>
       <% end %>
-    </div>
-    <div class="d-flex align-items-center p-2 mt-5">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
