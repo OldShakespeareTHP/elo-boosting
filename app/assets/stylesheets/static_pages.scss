@@ -7,7 +7,7 @@
   background-position: top;
   background-size: cover;
   background-attachment: scroll;
-  height: 65vh;
+  min-height: 65vh;
   clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
 }
 
