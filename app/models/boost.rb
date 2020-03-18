@@ -1,15 +1,13 @@
 class Boost < ApplicationRecord
+  RANKS = ["Bronze", "Silver", "Gold", "Platinum", "Master", "GrandMaster", "Challenger"]
   belongs_to :riot_account
   validates :queue, presence: true, inclusion: { in: %w(NA EUW EUNE LAN TR OCE LAN LAS) }
-  validates :current_rank, presence: true, inclusion: { in: %w(B S G P M GM C) }
-  validates :desired_rank, presence: true, inclusion: { in: %w(S G P M GM C) }
+  validates :current_rank, presence: true, inclusion: RANKS
+  validates :desired_rank, presence: true, inclusion: RANKS
   validate :desired_rank_must_be_bigger_than_current
- 
-  private
-  def desired_rank_must_be_bigger_than_current
-    rank = ["B", "S", "G", "P", "M", "GM", "C"]
 
-    if !current_rank.empty? && !desired_rank.empty? && rank.find_index(self.desired_rank) <= rank.find_index(self.current_rank)
+  def desired_rank_must_be_bigger_than_current
+    if !current_rank.empty? && !desired_rank.empty? && RANKS.find_index(self.desired_rank) <= RANKS.find_index(self.current_rank)
       errors.add(:desired_rank, "must be bigger than current_rank")
     end
   end
@@ -24,17 +22,17 @@ class Boost < ApplicationRecord
 
   def total_price
     ret = 0
-    if current_rank == "B" && desired_rank == "S"
+    if current_rank == "Bronze" && desired_rank == "Silver"
       ret += 50
-    elsif current_rank == "S" && desired_rank == "G"
+    elsif current_rank == "Silver" && desired_rank == "Gold"
       ret += 90
-    elsif current_rank == "G" && desired_rank == "P"
+    elsif current_rank == "Gold" && desired_rank == "Platinum"
       ret += 140
-    elsif current_rank == "P" && desired_rank == "M"
+    elsif current_rank == "Platinum" && desired_rank == "Master"
       ret += 400
-    elsif current_rank == "M" && desired_rank == "GM"
+    elsif current_rank == "Master" && desired_rank == "GrandMaster"
       ret += 300
-    elsif current_rank == "GM" && desired_rank == "C"
+    elsif current_rank == "GrandMaster" && desired_rank == "Challenger"
       ret += 900
     end
     ret
