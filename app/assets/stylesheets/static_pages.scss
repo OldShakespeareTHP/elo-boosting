@@ -3,17 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #jumbotron,.jumbotron {
-  background-image: url(Kassadin_5.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), image-url("Kassadin_5.jpg");
   background-position: top;
   background-size: cover;
   background-attachment: scroll;
-  text-shadow: 2px 1px black;
+  height: 65vh;
+  clip-path: polygon(0 0, 100% 0, 100% 81%, 0% 100%);
 }
 
-#boostme-btn {
-  background-color: #0FB8D2;
+section {
+  min-height: 35vh;
 }
 
-#pricing-btn {
-  background-color: #D0A85C;
+.cta {
+  transform: scale(1.5);
+}
+
+section:nth-child(4) div{
+  height: 25vh;
+}
+
+section.bg-dark {
+  border-top: 1px solid var(--gray-dark);
+  border-bottom: 1px solid var(--gray-dark);
 }
