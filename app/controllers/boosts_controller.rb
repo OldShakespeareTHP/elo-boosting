@@ -1,0 +1,2 @@
+class BoostsController < ApplicationController
+end
