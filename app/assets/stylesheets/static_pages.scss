@@ -29,7 +29,7 @@ section.bg-dark {
 }
 
 #list-tab > .active {
-  background-color: var(--info);
+  background-color: var(--info) !important;
   border-color: var(--info);
 }
 
