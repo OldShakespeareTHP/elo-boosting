@@ -8,7 +8,11 @@ class Boost < ApplicationRecord
   validate :desired_rank_must_be_bigger_than_current
 
   def desired_rank_must_be_bigger_than_current
-    if !current_rank.empty? && !desired_rank.empty? && RANKS.find_index(self.desired_rank) <= RANKS.find_index(self.current_rank)
+    puts current_rank
+    puts desired_rank
+    puts RANKS.find_index(self.desired_rank)
+    puts RANKS.find_index(self.current_rank)
+    if RANKS.include?(current_rank) && RANKS.include?(desired_rank) && (RANKS.find_index(self.desired_rank) <= RANKS.find_index(self.current_rank))
       errors.add(:desired_rank, "must be bigger than current_rank")
     end
   end
@@ -21,21 +25,13 @@ class Boost < ApplicationRecord
   # Master - GrandMaster : 300$
   # GrandMaster - Challenger : 900$
 
+  def self.total_price(current_rank, desired_rank)
+    hash_prices = {"Bronze" => 0, "Silver" => 90, "Gold" => 230, "Platinum" => 370, "Master" => 770, "GrandMaster" => 1070, "Challenger" => 1970}
+    ret = hash_prices[desired_rank] - hash_prices[current_rank]
+    ret >= 0 ? ret : 0
+  end
+
   def total_price
-    ret = 0
-    if current_rank == "Bronze" && desired_rank == "Silver"
-      ret += 50
-    elsif current_rank == "Silver" && desired_rank == "Gold"
-      ret += 90
-    elsif current_rank == "Gold" && desired_rank == "Platinum"
-      ret += 140
-    elsif current_rank == "Platinum" && desired_rank == "Master"
-      ret += 400
-    elsif current_rank == "Master" && desired_rank == "GrandMaster"
-      ret += 300
-    elsif current_rank == "GrandMaster" && desired_rank == "Challenger"
-      ret += 900
-    end
-    ret
+    self.class.total_price(self.current_rank, self.desired_rank)
   end
 end
