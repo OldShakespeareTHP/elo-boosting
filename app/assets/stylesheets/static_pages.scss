@@ -27,3 +27,12 @@ section.bg-dark {
   border-top: 1px solid var(--gray-dark);
   border-bottom: 1px solid var(--gray-dark);
 }
+
+#list-tab > .active {
+  background-color: var(--info) !important;
+  border-color: var(--info);
+}
+
+.faq {
+  min-height: 75vh;
+}
