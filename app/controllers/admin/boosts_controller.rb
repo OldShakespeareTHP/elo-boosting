@@ -1,5 +1,5 @@
 class Admin::BoostsController < ApplicationController
-  def edit
+  def show
     @boost = Boost.find(params[:id])
   end
 
@@ -7,7 +7,7 @@ class Admin::BoostsController < ApplicationController
 
   end
 
-  def new 
+  def new
 
   end
 
