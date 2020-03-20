@@ -1,5 +1,5 @@
 function total_price(){
-  var hash_prices = {"Bronze" : 0, "Silver" : 90, "Gold" : 230, "Platinum" : 370, "Master" : 770, "GrandMaster" : 1070, "Challenger" : 1970}
+  var hash_prices = {"Iron": 0, "Bronze" : 35, "Silver" : 90, "Gold" : 230, "Platinum" : 370, "Master" : 770, "GrandMaster" : 1070, "Challenger" : 1970}
   ret = hash_prices[$("select#desired_rank").children("option:selected").text()] - hash_prices[$("select#current_rank").children("option:selected").text()]
   return ret >= 0 ? ret : 0
 }

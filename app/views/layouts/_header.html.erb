@@ -28,7 +28,7 @@
               </a>
               <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item text-white" href="<%= edit_user_registration_path %>">My Profile</a>
-                <a class="dropdown-item text-white" href="#">Add LoL Account</a>
+                <a class="dropdown-item text-white" href="<%= user_path(current_user.id) %>">Manage LoL Accounts</a>
                 <%= link_to 'Disconnect', destroy_user_session_path, class:"dropdown-item text-white", method: :delete %>
               </div>
             <% else %>

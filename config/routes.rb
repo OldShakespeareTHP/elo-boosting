@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "/faq", to: "static_pages#faq"
   resources :charges
   resources :boosts, only: [:new, :create]
+  resources :users, only: [:show] do
+    resources :riot_accounts
   namespace :admin do
     root to: "static_pages#index" 
     resources :users, only: [:edit, :update, :show, :destroy]
