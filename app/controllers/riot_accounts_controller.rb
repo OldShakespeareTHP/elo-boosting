@@ -4,6 +4,13 @@ class RiotAccountsController < ApplicationController
   end
 
   def show
+    @acc = RiotAccount.find(params[:id])
+    respond_to do |format|
+      format.html {
+        redirect_to current_user
+      }
+      format.js {}
+    end
   end
 
   def new
@@ -19,8 +26,13 @@ class RiotAccountsController < ApplicationController
   end
 
   def destroy
-    #@acc = RiotAccount.find()
-    puts params
-    puts check_user
+    @acc = RiotAccount.find(params[:id])
+    @acc.destroy
+    respond_to do |format|
+      format.html {
+        redirect_to current_user
+      }
+      format.js {}
+    end
   end
 end

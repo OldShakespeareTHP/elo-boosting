@@ -1,0 +1,10 @@
+var section = document.getElementById("account_<%= @acc.id %>");
+var show = section.querySelector("a.text-warning").innerText == "Show password";
+console.log(show)
+if (show){
+	section.querySelector('strong').innerHTML = "<%= @acc.username %> - Password: <%= @acc.password %>";
+	section.querySelector("a.text-warning").innerHTML = "Hide password";
+} else {
+	section.querySelector('strong').innerHTML = "<%= @acc.username %>";
+	section.querySelector("a.text-warning").innerHTML = "Show password";
+}
