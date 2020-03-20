@@ -28,8 +28,7 @@
                 <td><%= user.email %></td>
                 <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
                 <td class=<%= background_color(user.confirmed?) %>>
-                <td><%= link_to 'Modify', edit_admin_user_path(user), class: "text-white" %><br/>
-                <%= link_to 'Delete', admin_user_path(user), method: :delete , class: "text-white", data: { confirm: "You sure?" } %></td>
+                <td><%= link_to 'Show the account', admin_user_path(user), class: "text-white" %></td>
               </tr>
             <%end%>
           </tbody>
@@ -87,7 +86,6 @@
                 <td><%= boost.current_rank %></td>
                 <td><%= boost.desired_rank %></td>
                 <td><%= boost.created_at.strftime("%d/%m/%Y") %></td>
-                <td><%= link_to 'Modifier', edit_admin_boost_path(boost), class: "text-white" %></td>
               </tr>
             <%end%>
           </tbody>
