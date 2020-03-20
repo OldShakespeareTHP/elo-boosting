@@ -4,11 +4,18 @@ class BoostsController < ApplicationController
   end
 
   def create
-    Boost.create(boost_params)
+    boost = Boost.new(boost_params)
+    boost.riot_account = RiotAccount.last
+    if boost.save
+      redirect_to root_path
+    else
+      flash[:alert] = boost.errors.messages
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private
   def boost_params
-    params.require(:boost).permit(:queue, :current_rank, :desired_rank, :riot_account)
+    params.require(:boost).permit(:queue, :current_rank, :desired_rank)
   end
 end
