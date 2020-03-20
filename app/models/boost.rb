@@ -1,5 +1,5 @@
 class Boost < ApplicationRecord
-  RANKS = ["Bronze", "Silver", "Gold", "Platinum", "Master", "GrandMaster", "Challenger"]
+  RANKS = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Master", "GrandMaster", "Challenger"]
   QUEUE = ["Solo/Duo", "Flex"]
   belongs_to :riot_account
   validates :queue, presence: true, inclusion: QUEUE
@@ -18,6 +18,7 @@ class Boost < ApplicationRecord
   end
 
   ## PRICES FOR EACH RANK
+  # Iron - Bronze : 35$
   # Bronze - Silver : 50$
   # Silver - Gold : 90$
   # Gold - Platinum : 140$
@@ -26,7 +27,8 @@ class Boost < ApplicationRecord
   # GrandMaster - Challenger : 900$
 
   def self.total_price(current_rank, desired_rank)
-    hash_prices = {"Bronze" => 0, "Silver" => 90, "Gold" => 230, "Platinum" => 370, "Master" => 770, "GrandMaster" => 1070, "Challenger" => 1970}
+    hash_prices = {"Iron" => 0, "Bronze" => 35, "Silver" => 90, "Gold" => 230, "Platinum" => 370, "Master" => 770,
+                   "GrandMaster" => 1070, "Challenger" => 1970}
     ret = hash_prices[desired_rank] - hash_prices[current_rank]
     ret >= 0 ? ret : 0
   end
