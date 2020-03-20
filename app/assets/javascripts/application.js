@@ -13,4 +13,5 @@
 //= require activestorage
 //= require jquery3
 //= require jquery_ujs
+//= require stripe_button
 //= require_tree .
