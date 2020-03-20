@@ -17,6 +17,13 @@ class RiotAccountsController < ApplicationController
   end
 
   def create
+    @acc = RiotAccount.new(user: current_user, server: params[:server], username: params[:username], password:
+        params[:password])
+    if @acc.save
+      redirect_to current_user
+    else
+      render :new
+    end
   end
 
   def update
