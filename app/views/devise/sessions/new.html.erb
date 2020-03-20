@@ -6,6 +6,7 @@
 
     <div class="container mt-3 pt-3">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <div class="col-6 offset-3">
           <div class="form-group row text-white">
             <%= f.label :login%><br/>
