@@ -1,6 +1,6 @@
 class Boost < ApplicationRecord
   RANKS = ["Bronze", "Silver", "Gold", "Platinum", "Master", "GrandMaster", "Challenger"]
-  QUEUE = ["NA", "EUW", "EUNE", "LAN", "TR", "OCE", "LAN", "LAS"]
+  QUEUE = ["Solo/Duo", "Flex"]
   belongs_to :riot_account
   validates :queue, presence: true, inclusion: QUEUE
   validates :current_rank, presence: true, inclusion: RANKS
