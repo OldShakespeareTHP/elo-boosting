@@ -1,20 +1,13 @@
 <div class="log p-5 d-flex align-items-center justify-content-center">
 
   <div class="container bg-primary p-5 rounded-lg shadow-lg">
-    <h2 class="text-white text-center mt-3">User profil</h2>
+    <h2 class="text-white text-center mt-3"><%= @user.username %> profile</h2>
 
-<<<<<<< HEAD
-    <div class="col-8 offset-2 mt-3">
-
-      <div class="row text-white">
-      <!--<p>Email : <%%name of user ></p>-->
-=======
-    <% @user.riot_accounts.each do |account| %>
+    <% @riot_accounts.each do |account| %>
     <div class="col-8 offset-2 mt-3">
 
       <div class="row text-white">
         <p> <%= @user.email%> </p>
->>>>>>> 7aabc5c933e0c9a8a2a8ca1baf677ddfa3eb471d
       </div>
 
       <div class="row text-white">
@@ -28,27 +21,17 @@
             </thead>
             <tbody>
               <tr>
-<<<<<<< HEAD
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-=======
                 <td><%= account.id %> </td>
                 <td><%= account.username %> </td>
                 <td><%= account.password %></td>
-                <td><%= server %></td>
->>>>>>> 7aabc5c933e0c9a8a2a8ca1baf677ddfa3eb471d
+                <td><%= account.server %></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="row text-white">
-<<<<<<< HEAD
-=======
-          <% account.boost.each do |boost| %>
->>>>>>> 7aabc5c933e0c9a8a2a8ca1baf677ddfa3eb471d
+          <% account.boosts.each do |boost| %>
           <p>current boosts :</p>
           <table class="table table-dark table-hover">
             <thead>
@@ -60,28 +43,11 @@
             </thead>
             <tbody>
               <tr>
-<<<<<<< HEAD
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-                <td>#</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="actions">
-          <button type="button" name="button" class="btn btn-info rounded-sm btn-block mt-3">Ban this account</button>
-        </div>
-
-    </div>
-=======
                 <td><%= boost.riot_account.id %></td>
                 <td><%= boost.queue %></td>
                 <td><%= boost.current_rank %></td>
                 <td><%= boost.desired_rank %></td>
-                <td><%= boost.price %></td>
+                <td><%= boost.total_price %></td>
               </tr>
             </tbody>
           </table>
@@ -89,11 +55,10 @@
         </div>
 
         <div class="actions">
-          <% button_to "Ban this account", admin_user_path(@user.id), method: delete, class: "btn btn-info rounded-sm btn-block mt-3"%>
+          <% button_to "Ban this account", admin_user_path(@user), method: :delete, class: "btn btn-info rounded-sm btn-block mt-3"%>
         </div>
 
     </div>
     <%end%>
->>>>>>> 7aabc5c933e0c9a8a2a8ca1baf677ddfa3eb471d
   </div>
 </div>

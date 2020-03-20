@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @riot_accounts = @user.riot_accounts
   end
 
   def edit
