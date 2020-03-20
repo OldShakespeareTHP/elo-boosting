@@ -7,7 +7,7 @@
     <div class="container mt-3 pt-3">
       <%= form_with url:charges_path do |f| %>
         <div class="col-6 offset-3">
-          <div class="form-group d-flex flex-column text-white">
+          <div class="form-group d-flex flex-column text-white">  
             <%= f.label :current_rank %><br/>
             <%= f.select "current_rank", options_for_select(Boost::RANKS), class: "form-control rounded-sm" %>
           </div>
@@ -23,12 +23,12 @@
           <% unless !current_user || current_user.riot_accounts.nil? %>
             <div class="form-group d-flex flex-column text-white">
               <%= f.label :riot_account %><br/>
-              <%= f.select "riot_accoun",  options_for_select(current_user.riot_accounts), class: "form-control rounded-sm" %>
+              <%= f.select "riot_account",  options_for_select(@riot_accounts_usernames), class: "form-control rounded-sm" %>
             </div>
           <% end %>
           <div class="d-flex justify-content-end mt-4" id="bottom_boost">
               <div  class="ml-5">
-                <div id="print_price"><%= Boost.total_price("Bronze", "Master") %></div>€
+                <div id="print_price">0</div>€
               </div>
               <div class="actions">
                   <script
@@ -40,7 +40,8 @@
                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                     data-locale="auto"
                     data-currency="eur"
-                    data-label="Commander">
+                    data-label="Commander"
+                    data-email=<%= current_user.email %>>
                   </script> 
               </div>
           </div>
