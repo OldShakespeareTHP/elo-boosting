@@ -13,7 +13,8 @@ module EloBoosting
     config.load_defaults 5.2
 
     # Allow url generation inside of emails
-    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    config.action_mailer.perform_deliveries = true
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
