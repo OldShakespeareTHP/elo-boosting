@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :boosts, only: [:new, :create]
   resources :users, only: [:show] do
     resources :riot_accounts
+  end
   namespace :admin do
     root to: "static_pages#index" 
     resources :users, only: [:edit, :update, :show, :destroy]
