@@ -8,26 +8,27 @@
       <div class="text-white mt-3">
         <p class="font-weight-bold">Account's informations :</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-primary">Boostme account (email) : #</li>
-          <li class="list-group-item bg-primary">Username : #</li>
-          <li class="list-group-item bg-primary">Password : #</li>
-          <li class="list-group-item bg-primary">Server : #</li>
+          <li class="list-group-item bg-primary">Boostme account (email) : <%= @boost.riot_account.user.email %> </li>
+          <li class="list-group-item bg-primary">Username : <%= @boost.riot_account.username %> </li>
+          <li class="list-group-item bg-primary">Password : <%= @boost.riot_account.password %> </li>
+          <li class="list-group-item bg-primary">Server : <%= @boost.riot_account.server %> </li>
         </ul>
       </div>
 
       <div class="text-white mt-3">
         <p class="font-weight-bold">Boost's informations :</p>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-primary">Queue : #</li>
-          <li class="list-group-item bg-primary">Current rank : #</li>
-          <li class="list-group-item bg-primary">Desired rank : #</li>
-          <li class="list-group-item bg-primary">Price : #</li>
+          <li class="list-group-item bg-primary">Queue : <%= @boost.queue %> </li>
+          <li class="list-group-item bg-primary">Current rank : <%= @boost.current_rank %> </li>
+          <li class="list-group-item bg-primary">Desired rank : <%= @boost.desired_rank %> </li>
+          <li class="list-group-item bg-primary">Price : <%= @boost.price %> </li>
 
         </ul>
       </div>
 
       <div class="actions">
         <button type="button" name="button" class="btn btn-info rounded-sm btn-block mt-3">Return to the User profile</button>
+        <%= button_to "Return to the User profile", admin_user_path(@boost.riot_account.user.id), class: "btn btn-info rounded-sm btn-block mt-3"%> 
       </div>
 
     </div>
