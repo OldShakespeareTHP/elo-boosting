@@ -1,0 +1,2 @@
+module RiotAccountsHelper
+end
