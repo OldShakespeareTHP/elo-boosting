@@ -14,7 +14,7 @@ $(document).ready(function(){
 
   $("#bottom_boost").on("click", "button", function(e){
     console.log($("select#current_rank").children("option:selected").text());
-    const Url="http://localhost:3000/boosts/"
+    const Url="https://elo-boosting.herokuapp.com/boosts/"
     $.ajax({
       headers: {
         'X-Transaction': 'POST Example',
