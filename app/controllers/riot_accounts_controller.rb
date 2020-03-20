@@ -1,4 +1,5 @@
 class RiotAccountsController < ApplicationController
+  before_action :check_user
   def index
   end
 
@@ -18,5 +19,8 @@ class RiotAccountsController < ApplicationController
   end
 
   def destroy
+    #@acc = RiotAccount.find()
+    puts params
+    puts check_user
   end
 end

@@ -17,5 +17,9 @@ class User < ApplicationRecord
     else
       where(conditions.to_hash).first
     end
-  end 
+  end
+
+  def admin?
+    self.role == "admin"
+  end
 end
