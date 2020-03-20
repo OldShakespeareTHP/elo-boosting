@@ -1,0 +1,10 @@
+<h1>Salut <%= @customer.name %>  !</h1>
+<p>
+  Tu viens de faire l'achat d'un boost sur notre site, d'un montant de <%= @charge.amount %> <%= @charge.currency %>.
+</p>
+<p>
+  Pour accéder à ton espace client, connecte-toi via : <%= link_to "Se connecter", new_user_session_url %>.
+</p>
+<p>
+  À très vite sur <%= link_to "notre site", root_url %>. !
+</p>

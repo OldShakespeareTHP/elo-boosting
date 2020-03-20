@@ -1,0 +1,8 @@
+Salut <%= @customer.name %> !
+==========================================================
+
+Tu viens de faire l'achat d'un boost sur notre site, d'un montant de <%= @charge.amount %> <%= @charge.currency %>.
+ 
+Pour accéder à ton espace client, connecte-toi via : <%= link_to "Se connecter", new_user_session_url %>.
+
+À très vite sur <%= link_to "notre site", root_url %>. !

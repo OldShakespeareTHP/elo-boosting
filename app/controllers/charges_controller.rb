@@ -4,9 +4,10 @@ class ChargesController < ApplicationController
   
   def create
     # Amount in cents
-    @amount = @boost.total_price
-  
+    @amount = current_user.boosts.last.total_price
+
     customer = Stripe::Customer.create({
+      name: current_user.username,
       email: params[:stripeEmail],
       source: params[:stripeToken],
     })
@@ -15,9 +16,13 @@ class ChargesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Rails Stripe customer',
-      currency: 'usd',
+      currency: 'eur',
     })
-  
+
+    unless charge.nil?
+      BoostMailer::boost_email(customer, charge).deliver_now
+    end
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path

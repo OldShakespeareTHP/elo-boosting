@@ -1,2 +1,7 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% flash.each do |type, msg| %>
+  <div class="d-flex justify-content-center">
+    <div class="p-2 rounded-full alert alert-<%= class_for_flash(type) %>" role="alert">
+      <%= msg %>
+    </div>
+  </div>
+<% end %>
