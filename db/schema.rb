@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_03_18_111129) do
   enable_extension "plpgsql"
 
   create_table "boosts", force: :cascade do |t|
-    t.string "queue", default: "", null: false
-    t.string "current_rank", default: "", null: false
-    t.string "desired_rank", default: "", null: false
+    t.string "queue"
+    t.string "current_rank"
+    t.string "desired_rank"
     t.bigint "riot_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_111129) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_111129) do
     t.string "role", default: "customer", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "boosts", "riot_accounts"
