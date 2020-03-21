@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  before_action :redirect_not_signed_in
   def new
   end
   

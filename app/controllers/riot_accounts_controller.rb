@@ -1,4 +1,5 @@
 class RiotAccountsController < ApplicationController
+  before_action :redirect_not_signed_in
   before_action :check_user
   def index
   end

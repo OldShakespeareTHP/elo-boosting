@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    current_user.id == params[:user_id] || current_user.admin?
+    current_user ? current_user.id == params[:user_id] || current_user.admin? : false
   end
 
 end
