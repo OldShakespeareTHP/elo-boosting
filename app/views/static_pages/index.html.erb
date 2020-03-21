@@ -57,6 +57,8 @@
 <section class="pb-5 text-center bg-dark">
     <h1 class="text-center pt-5 text-white">Start Now !</h1>
     <div class="d-flex justify-content-center align-items-center">
-      <a class=" cta text-white btn btn-info rounded font-weight-bold" type="button">BOOST ME !</a>
+      <a href="<%= current_user ? new_boost_path : new_user_session_path %>"
+         class=" cta text-white ml-3 btn btn-info rounded font-weight-bold"
+         type="button">BOOST ME !</a>
     </div>
 </section>
